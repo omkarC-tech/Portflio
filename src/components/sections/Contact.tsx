@@ -49,13 +49,13 @@ export const Contact: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <a href="mailto:omkar@example.com" className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-gray-800/80 border border-gray-100 dark:border-gray-700/50 hover:border-primary/50 transition-colors group">
+              <a href="mailto:omkarchandra206@gmail.com" className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-gray-800/80 border border-gray-100 dark:border-gray-700/50 hover:border-primary/50 transition-colors group">
                 <div className="p-3 bg-primary/10 text-primary rounded-lg group-hover:bg-primary group-hover:text-white transition-colors">
                   <Mail size={20} />
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 font-medium">Email Me</p>
-                  <p className="font-medium text-gray-900 dark:text-gray-100">Contact me</p>
+                  <p className="font-medium text-gray-900 dark:text-gray-100 break-all">omkarchandra206@gmail.com</p>
                 </div>
               </a>
               
