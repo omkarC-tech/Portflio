@@ -9,7 +9,7 @@ import cvFile from '../../assets/Omkar_Chandra_CV.pdf';
 export const Hero: React.FC = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center">
           {/* Status Pill */}
@@ -25,7 +25,7 @@ export const Hero: React.FC = () => {
             </span>
             Available for new opportunities
           </motion.div>
-          
+
           {/* Massive Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -33,9 +33,9 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
             className="text-6xl md:text-8xl lg:text-[140px] font-bold font-heading mb-4 tracking-tighter leading-none"
           >
-            Omkar Chandra<span className="text-cyan-400">.</span>
+            Omkar Chandra
           </motion.h1>
-          
+
           {/* Typing Subheadline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ export const Hero: React.FC = () => {
               className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500"
             />
           </motion.div>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -67,7 +67,7 @@ export const Hero: React.FC = () => {
           >
             Building premium, scalable web applications and intelligent systems that solve real-world problems. Elevating digital experiences through code.
           </motion.p>
-          
+
           {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -82,7 +82,7 @@ export const Hero: React.FC = () => {
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-300 to-blue-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </Link>
-            
+
             <a href={cvFile} download="Omkar_Chandra_CV.pdf" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center gap-2 px-8 py-4 glass text-white border border-white/20 hover:bg-white/10 rounded-full font-medium transition-all hover:scale-105 backdrop-blur-md">
               <Download size={18} className="text-gray-300 group-hover:text-white transition-colors" />
               Download CV
