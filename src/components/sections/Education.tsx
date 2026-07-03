@@ -1,54 +1,99 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, BookOpen } from 'lucide-react';
 
 const education = [
   {
-    degree: 'Bachelor of Engineering / Technology',
-    institution: 'Alamuri Ratnamala Institute of Technology',
-    date: 'Recent',
-    description: 'Affiliated with the University of Mumbai.'
+    degree: 'Bachelor of Engineering',
+    institution: 'Alamuri Ratnamala Institute of Engineering & Technology',
+    date: 'Graduation',
+    description: 'Score: 64.5% | CGPI: 7.22'
+  },
+  {
+    degree: '12th Grade (HSC)',
+    institution: 'St. Thomas High School and Junior College',
+    date: '12th Grade',
+    description: 'Score: 62.3%'
+  },
+  {
+    degree: '10th Grade (SSC)',
+    institution: 'St. Thomas Academy',
+    date: '10th Grade',
+    description: 'Score: 73.4%'
   }
 ];
 
 export const Education: React.FC = () => {
   return (
-    <section id="education" className="py-24 bg-gray-50 dark:bg-gray-900/30">
-      <div className="container mx-auto px-6">
+    <section id="education" className="py-32 relative">
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Academic Background</h2>
-          <h3 className="text-4xl md:text-5xl font-heading font-bold">Education</h3>
+          <h2 className="text-sm font-bold text-cyan-400 uppercase tracking-[0.2em] mb-3">Academic Background</h2>
+          <h3 className="text-5xl md:text-6xl font-heading font-bold text-white">Education</h3>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto">
-          <div className="flex items-center gap-3 mb-8 justify-center md:justify-start">
-            <GraduationCap className="text-primary w-8 h-8" />
-            <h4 className="text-2xl font-bold font-heading">Academic Journey</h4>
-          </div>
-          
-          <div className="space-y-8">
-            {education.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800/80 p-8 rounded-2xl border border-gray-100 dark:border-gray-700/50 shadow-sm"
+        <div className="max-w-4xl mx-auto relative">
+          {/* Glowing Timeline Line */}
+          <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-cyan-500/50 to-transparent md:-translate-x-1/2" />
+
+          {education.map((item, index) => (
+            <div key={index} className="relative flex flex-col md:flex-row items-start mb-16 last:mb-0 group">
+              
+              {/* Timeline Dot */}
+              <div className="absolute left-[29px] md:left-1/2 w-4 h-4 rounded-full bg-[#0a192f] border-2 border-cyan-400 md:-translate-x-1/2 mt-6 z-10 group-hover:bg-cyan-400 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.6)] transition-all duration-300" />
+
+              {/* Date (Desktop left) */}
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="hidden md:block w-1/2 pr-16 text-right pt-5"
               >
-                <span className="text-sm font-medium text-primary mb-2 block">{item.date}</span>
-                <h5 className="text-xl font-bold font-heading mb-1">{item.degree}</h5>
-                <p className="text-gray-700 dark:text-gray-300 font-medium mb-3">{item.institution}</p>
-                <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
+                <div className="flex items-center justify-end gap-3 text-blue-200/70 font-semibold tracking-wide">
+                  <span>{item.date}</span>
+                  <BookOpen size={18} className="text-blue-400" />
+                </div>
               </motion.div>
-            ))}
-          </div>
+
+              {/* Content Card */}
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="w-full md:w-1/2 pl-16 md:pl-16"
+              >
+                <div className="glass-card p-8 sm:p-10 rounded-3xl relative overflow-hidden group-hover:border-cyan-400/30 transition-all duration-500">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-cyan-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  
+                  {/* Mobile Date */}
+                  <div className="flex md:hidden items-center gap-2 text-sm text-blue-200/70 font-semibold mb-6">
+                    <BookOpen size={16} className="text-blue-400" />
+                    <span>{item.date}</span>
+                  </div>
+
+                  <h4 className="text-2xl font-bold font-heading mb-3 text-white">{item.degree}</h4>
+                  
+                  <div className="flex items-center gap-2 text-cyan-400 font-medium mb-4">
+                    <GraduationCap size={18} />
+                    <span>{item.institution}</span>
+                  </div>
+                  
+                  <p className="text-gray-400 leading-relaxed font-mono text-sm bg-white/5 inline-block px-4 py-2 rounded-lg border border-white/10">
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

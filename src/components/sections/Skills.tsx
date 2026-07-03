@@ -1,75 +1,110 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layout, Server, Database, BrainCircuit, Wrench } from 'lucide-react';
+import { Layout, Server, Database, BrainCircuit, Terminal, Code2 } from 'lucide-react';
+import Tilt from 'react-parallax-tilt';
 
 const skillCategories = [
   {
-    title: 'Frontend',
-    icon: <Layout className="w-6 h-6 text-primary" />,
-    skills: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML5/CSS3', 'Framer Motion']
+    title: "Frontend Engineering",
+    icon: <Layout className="w-6 h-6 text-cyan-400" />,
+    description: "Building responsive, accessible, and highly interactive user interfaces.",
+    skills: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    colSpan: "col-span-1 md:col-span-2 lg:col-span-2"
   },
   {
-    title: 'Backend',
-    icon: <Server className="w-6 h-6 text-primary" />,
-    skills: ['Node.js', 'Express.js', 'REST APIs', 'GraphQL', 'Python']
+    title: "Backend & APIs",
+    icon: <Server className="w-6 h-6 text-blue-400" />,
+    description: "Architecting scalable and secure server-side applications.",
+    skills: ['Node.js', 'Express.js', 'GraphQL', 'Python'],
+    colSpan: "col-span-1 md:col-span-2 lg:col-span-1"
   },
   {
-    title: 'Database',
-    icon: <Database className="w-6 h-6 text-primary" />,
-    skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'Mongoose']
+    title: "AI & Machine Learning",
+    icon: <BrainCircuit className="w-6 h-6 text-pink-400" />,
+    description: "Developing intelligent models and data-driven solutions.",
+    skills: ['TensorFlow', 'PyTorch', 'Scikit-Learn', 'Deep Learning'],
+    colSpan: "col-span-1 md:col-span-2 lg:col-span-1"
   },
   {
-    title: 'AI/ML',
-    icon: <BrainCircuit className="w-6 h-6 text-primary" />,
-    skills: ['TensorFlow', 'PyTorch', 'Scikit-Learn', 'Deep Learning', 'Neural Networks', 'Pandas', 'NumPy']
+    title: "Databases",
+    icon: <Database className="w-6 h-6 text-emerald-400" />,
+    description: "Designing optimized schemas and managing data flow.",
+    skills: ['MongoDB', 'PostgreSQL'],
+    colSpan: "col-span-1 md:col-span-1 lg:col-span-1"
   },
   {
-    title: 'Tools & DevOps',
-    icon: <Wrench className="w-6 h-6 text-primary" />,
-    skills: ['Git/GitHub', 'Docker', 'AWS', 'Linux', 'VS Code', 'Postman']
+    title: "DevOps & Tools",
+    icon: <Terminal className="w-6 h-6 text-orange-400" />,
+    description: "Automating deployments and managing infrastructure.",
+    skills: ['Git & GitHub', 'Docker', 'AWS'],
+    colSpan: "col-span-1 md:col-span-1 lg:col-span-1"
   }
 ];
 
 export const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-24 relative">
-      <div className="container mx-auto px-6">
+    <section id="skills" className="py-32 relative z-10">
+      <div className="container mx-auto px-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">My Arsenal</h2>
-          <h3 className="text-4xl md:text-5xl font-heading font-bold">Technical Skills</h3>
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <Code2 className="text-cyan-400 w-6 h-6" />
+            <h2 className="text-sm font-bold text-cyan-400 uppercase tracking-[0.2em]">Technical Arsenal</h2>
+          </div>
+          <h3 className="text-5xl md:text-6xl font-heading font-bold text-white">Skills & Expertise</h3>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {skillCategories.map((category, index) => (
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.map((category, idx) => (
             <motion.div
-              key={category.title}
+              key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white/50 dark:bg-gray-800/40 backdrop-blur-sm p-6 rounded-2xl border border-gray-100 dark:border-gray-700/50 hover:border-primary/50 transition-colors group"
+              className={category.colSpan}
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-xl bg-gray-50 dark:bg-gray-900 group-hover:bg-primary/10 transition-colors">
-                  {category.icon}
+              <Tilt
+                tiltMaxAngleX={10}
+                tiltMaxAngleY={10}
+                perspective={1000}
+                transitionSpeed={1000}
+                scale={1.02}
+                gyroscope={true}
+                className="h-full"
+              >
+                <div className="glass-card h-full p-8 rounded-[2rem] border-white/5 hover:border-cyan-400/30 transition-all duration-500 group relative overflow-hidden">
+                  {/* Background Glow */}
+                  <div className="absolute -top-24 -right-24 w-48 h-48 bg-cyan-500/10 rounded-full blur-[50px] group-hover:bg-cyan-500/20 transition-colors duration-500 pointer-events-none" />
+
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="p-3 bg-white/5 rounded-2xl border border-white/10 group-hover:scale-110 transition-transform duration-300">
+                        {category.icon}
+                      </div>
+                      <h4 className="text-2xl font-bold text-white font-heading">{category.title}</h4>
+                    </div>
+
+                    <p className="text-gray-400 text-sm mb-8">{category.description}</p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill, sIdx) => (
+                        <span
+                          key={sIdx}
+                          className="px-4 py-2 text-sm font-medium bg-white/5 border border-white/10 text-gray-200 rounded-full backdrop-blur-sm group-hover:border-cyan-400/30 transition-colors"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <h4 className="font-heading font-bold text-lg">{category.title}</h4>
-              </div>
-              
-              <ul className="space-y-3">
-                {category.skills.map((skill) => (
-                  <li key={skill} className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors" />
-                    <span className="font-medium text-sm">{skill}</span>
-                  </li>
-                ))}
-              </ul>
+              </Tilt>
             </motion.div>
           ))}
         </div>

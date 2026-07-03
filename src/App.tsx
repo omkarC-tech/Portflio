@@ -1,24 +1,19 @@
+import { Routes, Route } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
-import { Hero } from './components/sections/Hero';
-import { About } from './components/sections/About';
-import { Experience } from './components/sections/Experience';
-import { Skills } from './components/sections/Skills';
-import { Projects } from './components/sections/Projects';
-import { Research } from './components/sections/Research';
-import { Education } from './components/sections/Education';
-import { Contact } from './components/sections/Contact';
+import { Home } from './pages/Home';
+import { About } from './pages/About';
+import { Projects } from './pages/Projects';
+import { Contact } from './pages/Contact';
 
 function App() {
   return (
     <Layout>
-      <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Research />
-      <Education />
-      <Contact />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
     </Layout>
   );
 }

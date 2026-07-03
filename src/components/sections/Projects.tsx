@@ -40,66 +40,67 @@ const projects = [
 
 export const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-24 bg-gray-50 dark:bg-gray-900/30">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-32 relative">
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">My Work</h2>
-          <h3 className="text-4xl md:text-5xl font-heading font-bold">Featured Projects</h3>
+          <h2 className="text-sm font-bold text-cyan-400 uppercase tracking-[0.2em] mb-3">Selected Work</h2>
+          <h3 className="text-5xl md:text-6xl font-heading font-bold">Featured Projects</h3>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="group rounded-2xl bg-white dark:bg-gray-800/80 border border-gray-100 dark:border-gray-700/50 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="group glass-card rounded-[2rem] overflow-hidden flex flex-col relative"
             >
               {/* Image Container */}
-              <div className="relative h-48 overflow-hidden">
-                <div className="absolute inset-0 bg-gray-900/20 group-hover:bg-transparent transition-colors z-10" />
+              <div className="relative h-64 sm:h-80 overflow-hidden w-full">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] to-transparent z-10 opacity-80" />
+                <div className="absolute inset-0 bg-cyan-500/20 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-[0.33,1,0.68,1]"
                 />
               </div>
 
               {/* Content */}
-              <div className="p-6 flex flex-col flex-grow">
-                <h4 className="text-2xl font-bold font-heading mb-3 group-hover:text-primary transition-colors">
+              <div className="p-8 sm:p-10 flex flex-col flex-grow relative z-20 -mt-20">
+                <h4 className="text-3xl font-bold font-heading mb-4 text-white group-hover:text-cyan-300 transition-colors">
                   {project.title}
                 </h4>
-                <p className="text-gray-600 dark:text-gray-400 mb-6 flex-grow">
+                <p className="text-gray-400 mb-8 flex-grow leading-relaxed text-lg">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-8">
                   {project.tech.map((t, i) => (
-                    <span key={i} className="px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded-md">
+                    <span key={i} className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider bg-white/5 border border-white/10 text-cyan-100 rounded-full backdrop-blur-sm">
                       {t}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex items-center gap-4 mt-auto">
+                <div className="flex items-center gap-6 mt-auto">
                   {project.github && (
-                    <a href={project.github} className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
-                      <Github size={18} />
-                      Code
+                    <a href={project.github} className="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white transition-colors group/link">
+                      <Github size={20} className="group-hover/link:text-blue-400 transition-colors" />
+                      View Code
                     </a>
                   )}
                   {project.live && (
-                    <a href={project.live} className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
-                      <ExternalLink size={18} />
+                    <a href={project.live} className="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white transition-colors group/link">
+                      <ExternalLink size={20} className="group-hover/link:text-cyan-400 transition-colors" />
                       Live Demo
                     </a>
                   )}
