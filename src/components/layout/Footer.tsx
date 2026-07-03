@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Heart } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { FaGithub, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -77,7 +77,7 @@ export const Footer: React.FC = () => {
             © {currentYear} Omkar Chandra. All rights reserved.
           </p>
           <p className="text-gray-500 text-sm flex items-center gap-1">
-            Built with  using React & Tailwind
+            Built with using React & Tailwind
           </p>
         </div>
       </div>
