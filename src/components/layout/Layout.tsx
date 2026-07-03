@@ -18,10 +18,10 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
         
         {/* Water Ripple Effect */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-20 mix-blend-screen">
-          <div className="absolute inset-0 rounded-full border-[2px] border-cyan-400 animate-ripple" />
-          <div className="absolute inset-0 rounded-full border-[2px] border-blue-400 animate-ripple" style={{ animationDelay: '1.33s' }} />
-          <div className="absolute inset-0 rounded-full border-[2px] border-blue-400 animate-ripple" style={{ animationDelay: '2.66s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vw] md:w-[1000px] md:h-[1000px] pointer-events-none opacity-50 mix-blend-screen">
+          <div className="absolute inset-0 rounded-full border-cyan-400 animate-ripple" />
+          <div className="absolute inset-0 rounded-full border-blue-400 animate-ripple" style={{ animationDelay: '1.33s' }} />
+          <div className="absolute inset-0 rounded-full border-cyan-300 animate-ripple" style={{ animationDelay: '2.66s' }} />
         </div>
         
         {/* Moving glowing orbs */}

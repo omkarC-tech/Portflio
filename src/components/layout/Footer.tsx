@@ -74,10 +74,10 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            © {currentYear} Your Name. All rights reserved.
+            © {currentYear} Omkar Chandra. All rights reserved.
           </p>
           <p className="text-gray-500 text-sm flex items-center gap-1">
-            Built with <Heart size={14} className="text-red-500 animate-pulse" /> using React & Tailwind
+            Built with  using React & Tailwind
           </p>
         </div>
       </div>
