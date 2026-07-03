@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { FloatingNavbar } from './FloatingNavbar';
 import { Footer } from './Footer';
 import { CustomCursor } from '../ui/CustomCursor';
@@ -6,11 +6,13 @@ import { ScrollProgress } from '../ui/ScrollProgress';
 import { ThemeProvider } from '../../context/ThemeContext';
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const spotlightRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
+      if (spotlightRef.current) {
+        spotlightRef.current.style.background = `radial-gradient(800px circle at ${e.clientX}px ${e.clientY}px, rgba(6, 182, 212, 0.08), transparent 80%)`;
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -28,9 +30,10 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         
         {/* Interactive Spotlight Effect */}
         <div 
+          ref={spotlightRef}
           className="absolute inset-0 z-0 transition-opacity duration-300"
           style={{
-            background: `radial-gradient(800px circle at ${mousePos.x}px ${mousePos.y}px, rgba(6, 182, 212, 0.08), transparent 80%)`
+            background: `radial-gradient(800px circle at 50% 50%, rgba(6, 182, 212, 0.08), transparent 80%)`
           }}
         />
 
@@ -41,8 +44,8 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
           <div className="absolute inset-0 rounded-full border-cyan-300 animate-ripple" style={{ animationDelay: '10s' }} />
         </div>
 
-        {/* Subtle noise texture */}
-        <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none z-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+        {/* Subtle noise texture (Optimized: mix-blend-mode removed, just opacity) */}
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none z-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
         
         {/* Cloudy ambient orbs (Charcoal/Grey shade - 20% presence) */}
         <div className="absolute top-[-10%] left-[-5%] w-[35vw] h-[35vw] rounded-full bg-slate-400/5 blur-[120px] animate-float mix-blend-screen z-0" />

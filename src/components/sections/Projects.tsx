@@ -45,9 +45,9 @@ export const Projects: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "50px" }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-20"
+          className="text-center mb-20 will-change-transform"
         >
           <h2 className="text-sm font-bold text-cyan-400 uppercase tracking-[0.2em] mb-3">Selected Work</h2>
           <h3 className="text-5xl md:text-6xl font-heading font-bold">Featured Projects</h3>
@@ -59,9 +59,9 @@ export const Projects: React.FC = () => {
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "50px" }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="group glass-card rounded-[2rem] overflow-hidden flex flex-col relative"
+              className="group glass-card rounded-[2rem] overflow-hidden flex flex-col relative will-change-transform"
             >
               {/* Image Container */}
               <div className="relative h-64 sm:h-80 overflow-hidden w-full">
