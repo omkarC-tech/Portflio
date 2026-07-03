@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Layout, Server, Database, BrainCircuit, Terminal, Code2 } from 'lucide-react';
 import Tilt from 'react-parallax-tilt';
@@ -42,6 +42,15 @@ const skillCategories = [
 ];
 
 export const Skills: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <section id="skills" className="py-32 relative z-10">
       <div className="container mx-auto px-6 max-w-7xl">
@@ -70,15 +79,16 @@ export const Skills: React.FC = () => {
               className={category.colSpan}
             >
               <Tilt
+                tiltEnable={!isMobile}
                 tiltMaxAngleX={10}
                 tiltMaxAngleY={10}
                 perspective={1000}
                 transitionSpeed={1000}
-                scale={1.02}
-                gyroscope={true}
+                scale={isMobile ? 1 : 1.02}
+                gyroscope={!isMobile}
                 className="h-full"
               >
-                <div className="glass-card h-full p-8 rounded-[2rem] border-white/5 hover:border-cyan-400/30 transition-all duration-500 group relative overflow-hidden">
+                <div className="glass-card h-full p-8 rounded-[2rem] border-white/5 hover:border-cyan-400/30 hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/10 transition-all duration-500 group relative overflow-hidden cursor-pointer">
                   {/* Background Glow */}
                   <div className="absolute -top-24 -right-24 w-48 h-48 bg-cyan-500/10 rounded-full blur-[50px] group-hover:bg-cyan-500/20 transition-colors duration-500 pointer-events-none" />
 

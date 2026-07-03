@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-type Theme = 'dark';
+type Theme = 'light' | 'dark';
 
 interface ThemeContextType {
   theme: Theme;
@@ -10,18 +10,23 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme] = useState<Theme>('dark');
+  const [theme, setTheme] = useState<Theme>('dark');
 
   useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.remove('light');
-    root.classList.add('dark');
-    localStorage.setItem('theme', 'dark');
-  }, []);
+    if (theme === 'dark') {
+      root.classList.remove('light');
+      root.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      root.classList.add('light');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [theme]);
 
   const toggleTheme = () => {
-    // Disabled toggle for pure dark mode premium aesthetic
-    console.log("Dark mode is locked for this premium theme.");
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
   };
 
   return (

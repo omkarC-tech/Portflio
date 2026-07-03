@@ -40,13 +40,13 @@ export const FloatingNavbar: React.FC = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
         className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'w-[90%] md:w-[70%] max-w-5xl rounded-full shadow-lg shadow-blue-500/10 border border-blue-500/20 bg-[#112240]/80 backdrop-blur-md px-6 py-3' 
+            ? 'w-[90%] md:w-[70%] max-w-5xl rounded-full shadow-lg shadow-blue-500/10 border border-gray-200 dark:border-blue-500/20 bg-white/80 dark:bg-[#112240]/80 backdrop-blur-md px-6 py-3' 
             : 'w-full px-6 py-6 bg-transparent'
         } ${isScrolled ? 'top-4 md:top-6' : 'top-0'} flex items-center justify-between`}
       >
         <Link 
           to="/" 
-          className="text-2xl font-bold font-heading tracking-tighter text-white"
+          className="text-2xl font-bold font-heading tracking-tighter text-gray-900 dark:text-white"
         >
           OC<span className="text-cyan-400">.</span>
         </Link>
@@ -58,7 +58,7 @@ export const FloatingNavbar: React.FC = () => {
               key={link.name}
               to={link.href}
               className={({ isActive }) => `px-4 py-2 rounded-full text-sm font-medium transition-colors relative ${
-                isActive ? 'text-cyan-400' : 'text-gray-300 hover:text-cyan-400'
+                isActive ? 'text-cyan-600 dark:text-cyan-400' : 'text-gray-600 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400'
               }`}
             >
               {({ isActive }) => (
@@ -78,7 +78,7 @@ export const FloatingNavbar: React.FC = () => {
           
           <button
             onClick={toggleTheme}
-            className="p-2 ml-4 rounded-full text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
+            className="p-2 ml-4 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10 hover:text-gray-900 dark:hover:text-white transition-colors"
             aria-label="Toggle Theme"
           >
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
@@ -89,13 +89,13 @@ export const FloatingNavbar: React.FC = () => {
         <div className="flex md:hidden items-center gap-4">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
+            className="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10 hover:text-gray-900 dark:hover:text-white transition-colors"
           >
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 -mr-2 text-gray-300 hover:text-white"
+            className="p-2 -mr-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -109,7 +109,7 @@ export const FloatingNavbar: React.FC = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-x-0 top-[72px] z-50 md:hidden bg-[#112240]/95 backdrop-blur-xl border-b border-blue-500/20 shadow-xl"
+            className="fixed inset-x-0 top-[72px] z-50 md:hidden bg-white/95 dark:bg-[#112240]/95 backdrop-blur-xl border-b border-gray-200 dark:border-blue-500/20 shadow-xl"
           >
             <div className="flex flex-col p-4 space-y-4">
               {navLinks.map((link) => (
@@ -118,8 +118,8 @@ export const FloatingNavbar: React.FC = () => {
                   to={link.href}
                   className={({ isActive }) => `p-4 rounded-xl text-center font-medium transition-colors ${
                     isActive
-                      ? 'bg-cyan-400/10 text-cyan-400'
-                      : 'text-gray-300 hover:bg-white/5 hover:text-white'
+                      ? 'bg-cyan-50 dark:bg-cyan-400/10 text-cyan-600 dark:text-cyan-400'
+                      : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white'
                   }`}
                 >
                   {link.name}

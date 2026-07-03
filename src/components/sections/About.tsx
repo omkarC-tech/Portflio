@@ -81,7 +81,8 @@ export const About: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className="p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-md transition-shadow group"
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:shadow-primary/5 cursor-pointer transition-all duration-300 group"
                 >
                   <div className="mb-4 p-3 inline-block rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
                     {stat.icon}
