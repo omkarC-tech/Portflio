@@ -78,16 +78,7 @@ export const Skills: React.FC = () => {
               viewport={{ once: true, margin: "50px" }}
               className={`${category.colSpan} will-change-transform`}
             >
-              <Tilt
-                tiltEnable={!isMobile}
-                tiltMaxAngleX={10}
-                tiltMaxAngleY={10}
-                perspective={1000}
-                transitionSpeed={1000}
-                scale={isMobile ? 1 : 1.02}
-                gyroscope={!isMobile}
-                className="h-full"
-              >
+              <div className="h-full">
                 <div className="glass-card h-full p-8 rounded-[2rem] border-white/5 hover:border-cyan-400/30 hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/10 transition-all duration-500 group relative overflow-hidden cursor-pointer">
                   {/* Background Glow */}
                   <div className="absolute -top-24 -right-24 w-48 h-48 bg-cyan-500/10 rounded-full blur-[50px] group-hover:bg-cyan-500/20 transition-colors duration-500 pointer-events-none" />
@@ -106,7 +97,7 @@ export const Skills: React.FC = () => {
                       {category.skills.map((skill, sIdx) => (
                         <span
                           key={sIdx}
-                          className="px-4 py-2 text-sm font-medium bg-white/5 border border-white/10 text-gray-200 rounded-full backdrop-blur-sm group-hover:border-cyan-400/30 transition-colors"
+                          className="px-4 py-2 text-sm font-medium bg-white/5 border border-white/10 text-gray-200 rounded-full group-hover:border-cyan-400/30 transition-colors"
                         >
                           {skill}
                         </span>
@@ -114,7 +105,7 @@ export const Skills: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              </Tilt>
+              </div>
             </motion.div>
           ))}
         </div>

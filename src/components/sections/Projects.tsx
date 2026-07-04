@@ -70,6 +70,7 @@ export const Projects: React.FC = () => {
                 <img 
                   src={project.image} 
                   alt={project.title} 
+                  loading="lazy"
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-[0.33,1,0.68,1]"
                 />
               </div>
