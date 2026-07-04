@@ -12,7 +12,7 @@ const stats = [
 const AnimatedCounter = ({ value, suffix = '' }: { value: number, suffix?: string }) => {
   const [count, setCount] = useState(0);
   const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "0px" });
 
   useEffect(() => {
     if (isInView) {

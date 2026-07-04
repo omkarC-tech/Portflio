@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-white/10 bg-[#112240]/50 backdrop-blur-lg mt-auto overflow-hidden">
+    <footer className="relative border-t border-white/10 bg-[#112240]/50 backdrop-blur-lg mt-auto overflow-hidden pb-[env(safe-area-inset-bottom)]">
       {/* Footer Top Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" />
 
@@ -25,13 +25,13 @@ export const Footer: React.FC = () => {
               Crafting premium digital experiences through elegant code and dynamic design.
             </p>
             <div className="flex items-center gap-4">
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="p-2 rounded-full bg-white/5 border border-white/10 hover:border-cyan-400/50 hover:bg-cyan-500/10 text-gray-300 hover:text-cyan-400 transition-all duration-300 group">
+              <a href="https://github.com" aria-label="GitHub Profile" target="_blank" rel="noreferrer" className="p-2 rounded-full bg-white/5 border border-white/10 hover:border-cyan-400/50 hover:bg-cyan-500/10 text-gray-300 hover:text-cyan-400 transition-all duration-300 group">
                 <FaGithub size={18} className="group-hover:scale-110 transition-transform" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="p-2 rounded-full bg-white/5 border border-white/10 hover:border-blue-400/50 hover:bg-blue-500/10 text-gray-300 hover:text-blue-400 transition-all duration-300 group">
+              <a href="https://linkedin.com" aria-label="LinkedIn Profile" target="_blank" rel="noreferrer" className="p-2 rounded-full bg-white/5 border border-white/10 hover:border-blue-400/50 hover:bg-blue-500/10 text-gray-300 hover:text-blue-400 transition-all duration-300 group">
                 <FaLinkedinIn size={18} className="group-hover:scale-110 transition-transform" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="p-2 rounded-full bg-white/5 border border-white/10 hover:border-blue-400/50 hover:bg-blue-500/10 text-gray-300 hover:text-blue-400 transition-all duration-300 group">
+              <a href="https://twitter.com" aria-label="Twitter Profile" target="_blank" rel="noreferrer" className="p-2 rounded-full bg-white/5 border border-white/10 hover:border-blue-400/50 hover:bg-blue-500/10 text-gray-300 hover:text-blue-400 transition-all duration-300 group">
                 <FaTwitter size={18} className="group-hover:scale-110 transition-transform" />
               </a>
             </div>

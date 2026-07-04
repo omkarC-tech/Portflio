@@ -30,7 +30,7 @@ export const Education: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-20px" }}
           transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
@@ -52,7 +52,7 @@ export const Education: React.FC = () => {
               <motion.div 
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="hidden md:block w-1/2 pr-16 text-right pt-5"
               >
@@ -66,7 +66,7 @@ export const Education: React.FC = () => {
               <motion.div 
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="w-full md:w-1/2 pl-16 md:pl-16"
               >

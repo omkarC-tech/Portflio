@@ -8,7 +8,7 @@ import cvFile from '../../assets/Omkar_Chandra_CV.pdf';
 
 export const Hero: React.FC = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <section id="home" className="min-h-[100dvh] flex items-center justify-center relative overflow-hidden pt-20">
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center">
