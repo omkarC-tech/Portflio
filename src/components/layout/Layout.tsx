@@ -2,11 +2,10 @@ import React from 'react';
 import { FloatingNavbar } from './FloatingNavbar';
 import { Footer } from './Footer';
 import { WaterRipple } from '../ui/WaterRipple';
-import { ThemeProvider } from '../../context/ThemeContext';
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <ThemeProvider>
+    <>
       <FloatingNavbar />
 
       {/* Optimized Background - Removed heavy blurs and mix-blend-modes */}
@@ -19,6 +18,6 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       </main>
 
       <Footer />
-    </ThemeProvider>
+    </>
   );
 };

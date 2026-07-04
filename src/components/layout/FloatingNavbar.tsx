@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Moon, Sun, Menu, X } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
+import { Menu, X } from 'lucide-react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
@@ -12,7 +11,6 @@ const navLinks = [
 ];
 
 export const FloatingNavbar: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -75,24 +73,10 @@ export const FloatingNavbar: React.FC = () => {
               )}
             </NavLink>
           ))}
-          
-          <button
-            onClick={toggleTheme}
-            className="p-2 ml-4 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10 hover:text-gray-900 dark:hover:text-white transition-colors"
-            aria-label="Toggle Theme"
-          >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
         </div>
 
         {/* Mobile Toggle */}
         <div className="flex md:hidden items-center gap-4">
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10 hover:text-gray-900 dark:hover:text-white transition-colors"
-          >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 -mr-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
