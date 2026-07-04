@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Layout, Server, Database, BrainCircuit, Terminal, Code2 } from 'lucide-react';
-import Tilt from 'react-parallax-tilt';
 
 const skillCategories = [
   {
@@ -42,15 +41,6 @@ const skillCategories = [
 ];
 
 export const Skills: React.FC = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
   return (
     <section id="skills" className="py-32 relative z-10">
       <div className="container mx-auto px-6 max-w-7xl">
