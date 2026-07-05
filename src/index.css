@@ -91,48 +91,4 @@ h1, h2, h3, h4, h5, h6 {
   color: inherit;
 }
 
-/* Premium Water Ripple Effect */
-.water-ripple-layer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 50%;
-  /* Force composite layer for extreme performance */
-  will-change: transform, opacity;
-  transform: translate(-50%, -50%) scale(0.1);
-  opacity: 0;
-  animation: premium-ripple 12s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
-}
 
-/* Stagger layers to create depth */
-.water-ripple-layer.delay-0 { animation-delay: 0s; }
-.water-ripple-layer.delay-1 { animation-delay: 3s; }
-.water-ripple-layer.delay-2 { animation-delay: 6s; }
-.water-ripple-layer.delay-3 { animation-delay: 9s; }
-
-/* Animate ONLY transform and opacity to maintain 60 FPS */
-@keyframes premium-ripple {
-  0% {
-    transform: translate(-50%, -50%) scale(0.1);
-    opacity: 0;
-  }
-  15% {
-    opacity: 1; /* Fade in smoothly */
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1.5);
-    opacity: 0; /* Fade out as it expands */
-  }
-}
-
-/* Respect user preferences for reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .water-ripple-layer {
-    animation: none;
-    display: none;
-  }
-}

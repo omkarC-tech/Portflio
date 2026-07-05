@@ -38,7 +38,7 @@ export const FloatingNavbar: React.FC = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
         className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'w-[90%] md:w-[70%] max-w-5xl rounded-full shadow-lg shadow-blue-500/10 border border-gray-200 dark:border-blue-500/20 bg-white/80 dark:bg-[#112240]/80 backdrop-blur-md px-6 py-3' 
+            ? 'w-[90%] md:w-[70%] max-w-5xl rounded-full shadow-lg shadow-cyan-500/10 border border-gray-200/50 dark:border-white/10 bg-white/70 dark:bg-[#050D1F]/70 backdrop-blur-md px-6 py-3' 
             : 'w-full px-6 py-6 bg-transparent'
         } ${isScrolled ? 'top-4 md:top-6' : 'top-0'} flex items-center justify-between`}
       >
@@ -93,7 +93,7 @@ export const FloatingNavbar: React.FC = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-x-0 top-[72px] z-50 md:hidden bg-white/95 dark:bg-[#112240]/95 backdrop-blur-xl border-b border-gray-200 dark:border-blue-500/20 shadow-xl"
+            className="fixed inset-x-0 top-[72px] z-50 md:hidden bg-white/95 dark:bg-[#050D1F]/95 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 shadow-xl"
           >
             <div className="flex flex-col p-4 space-y-4">
               {navLinks.map((link) => (
