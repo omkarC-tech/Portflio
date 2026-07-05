@@ -147,7 +147,8 @@ export const LiquidBackground: React.FC = memo(() => {
       return;
     }
 
-    const gl = canvas.getContext('webgl', { alpha: true, antialias: false, depth: false });
+    const gl = (canvas.getContext('webgl', { alpha: true, antialias: false, depth: false }) || 
+                canvas.getContext('experimental-webgl', { alpha: true, antialias: false, depth: false })) as WebGLRenderingContext | null;
     if (!gl) return;
 
     const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
@@ -255,7 +256,7 @@ export const LiquidBackground: React.FC = memo(() => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full -z-50 pointer-events-none opacity-50 dark:opacity-100"
+      className="absolute inset-0 w-full h-full pointer-events-none opacity-50 dark:opacity-100"
       aria-hidden="true"
     />
   );
